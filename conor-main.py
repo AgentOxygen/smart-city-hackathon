@@ -1,6 +1,3 @@
-# -*- coding: utf-8 -*-
-
-import matplotlib.pyplot as plt
 from sklearn.preprocessing import PolynomialFeatures
 from sklearn.linear_model import LinearRegression
 from sklearn.pipeline import Pipeline
@@ -16,9 +13,6 @@ with open('elec_homes.json') as f1:
 
 with open('water_homes.json') as f2:
     data_water = json.load(f2)
-
-with open('weather_lat_lon.json') as f3:
-    data_weather = json.load(f3)
 
 
 # choose a house
@@ -57,12 +51,8 @@ f = lambda v : coefficients[0] + (v)*coefficients[1] + (v**2)*coefficients[2] + 
 y_solved = f(x)
 
 
-# accuracy tests
+# accuracy test
+
 
 # coefficient of determination (1 is perfect prediction)
 print('Coefficient of Determination: %.2f' % r2_score(y,y_solved))
-
-# plotting
-plt.scatter(x,y,color='black')
-plt.plot(x,y_solved,color='blue',linewidth=3)
-plt.show()
