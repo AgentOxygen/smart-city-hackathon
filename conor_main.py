@@ -1,7 +1,7 @@
 import numpy as np
 import random
-from sklearn.metrics import mean_squared_error, r2_score
 import json
+from sklearn.metrics import r2_score
 import conor_polyreg
 
 
@@ -34,20 +34,17 @@ y_test = np.array([-33,-2,1,6,43])
 order = 5
 
 # call polynomial regressor
-c = conor_polyreg.polyreg(x_test,y_test,order)
+c = conor_polyreg.polyreg(x,y,order)
 
 # solved function (order needs to match the variable "order")
 f = lambda v : c[0] + c[1]*(v) + c[2]*(v**2) + c[3]*(v**3) + c[4]*(v**4) + c[5]*(v**5) 
 
 # predicted y data
-y_pred = f(x_test)
+y_pred = f(x)
 
 
 
 # ACCURACY TESTS
 
-# mean squared error (0 is perfect prediction)
-print('Mean Squared Error: %.2f' % mean_squared_error(y_test,y_pred))
-
-# coefficient of determination (1 is perfect prediction)
-print('Coefficient of Determination: %.2f' % r2_score(y_test,y_pred))
+# coefficient of determination (1 is perfect)
+print('Coefficient of Determination: %.2f' % r2_score(y,y_pred))

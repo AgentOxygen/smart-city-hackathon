@@ -46,21 +46,20 @@ def polyreg(x,y,order):
     for n in range(order*2+1):
         if n <= order:
             aSize = aSize+1
-            A[np.arange(n+1),np.arange(order-n,order-n+n)] = np.diag(np.ones((1,aSize))*sum(x**n))
+            A[np.arange(n+1),np.arange(order-n,order+1)] = np.diag(np.ones((1,aSize))*sum(x**n))
         else:
             aSize = aSize-1
             A[np.arange(n-order,order+1),np.arange(2*order-n+1)] = np.diag(np.ones((1,aSize))*sum(x**n))
+
 
     # place values in the vector
     for n in range(order+1):
         b[n] = sum(y*(x**n))
 
-    print(scipy.linalg.det(A)) # DEBUG
 
     # solve for coefficient vector "a" in the form [a0 a1 a2 ... aOrder]
     a = np.linalg.solve(A,b)
-
-    print('Constants: ' + str(a)) # DEBUG
+    a = a[::-1]
     
     # return coefficient vector "a"
     return a
