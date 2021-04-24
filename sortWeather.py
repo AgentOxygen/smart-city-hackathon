@@ -4,14 +4,8 @@ creates a sorted version of the weather data set with only the useful fields
 """
 
 import pandas as pd
-import json
-import matplotlib.pyplot as plt
-import numpy as np
 from datetime import datetime
 
-from sklearn import datasets, linear_model
-from sklearn.model_selection import train_test_split
-from sklearn.metrics import mean_squared_error, r2_score
 
 #data_dir = "C:/Users/willc/Downloads/psamant"
 
