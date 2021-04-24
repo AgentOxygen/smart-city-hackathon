@@ -40,7 +40,7 @@ c = conor_polyreg.polyreg(x,y,order)
 f = lambda v : c[0] + c[1]*(v) + c[2]*(v**2) + c[3]*(v**3) + c[4]*(v**4) + c[5]*(v**5) 
 
 # predicted y data
-y_pred = f(x)
+y_pred = f(np.array(x))
 
 
 
