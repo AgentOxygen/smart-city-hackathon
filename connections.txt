@@ -1,0 +1,19 @@
+WHAT AFFECTS WATER CONSUMPTION THE MOST?
+----------------------------------------
+
+* time of day (hours)
+
+* season (group of months)
+
+* humidity (weather.humidity)
+
+* temperature (weather.temperature)
+
+* cloud cover (weather.cloud_cover)
+
+* rain (weather.precip_intensity AND weather.precip_probability)
+
+* power usage (power.hourly_kwh)
+
+* solar energy production -- correlates to sun (power.hourly_solar_kWh)
+
