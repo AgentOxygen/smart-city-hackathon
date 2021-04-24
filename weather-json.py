@@ -8,7 +8,7 @@ data_path = '../data/psamant/2017-2020_weather_data.csv'
 weather_ds = pd.read_csv(data_path)
 
 longitude = {}
-for index in range(0, 100):
+for index in range(0, len(weather_ds.latitude)):
      long = weather_ds.longitude[index]
      lat = weather_ds.latitude[index]
      timeString = weather_ds.localhour[index]
