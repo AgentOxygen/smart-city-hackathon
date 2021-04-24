@@ -2,7 +2,7 @@ import numpy as np
 import random
 from sklearn.metrics import mean_squared_error, r2_score
 import json
-import conor-polyreg
+import conor_polyreg
 
 
 # CAMERONS SCRIPT GOES HERE TO GET X AND Y DATA
@@ -30,7 +30,7 @@ for data_pt in data:
 order = 5
 
 # call polynomial regressor
-c = conor-polyreg.polyreg(x,y,order)
+c = conor_polyreg.polyreg(x,y,order)
 
 # solved function (order needs to match the variable "order")
 f = lambda v : c[0] + c[1]*(v) + c[2]*(v**2) + c[3]*(v**3) + c[4]*(v**4) + c[5]*(v**5) 

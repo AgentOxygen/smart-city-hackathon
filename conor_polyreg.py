@@ -1,4 +1,5 @@
 import numpy as np
+import scipy
 
 def polyreg(x,y,order):
 
@@ -53,6 +54,8 @@ def polyreg(x,y,order):
     # place values in the vector
     for n in range(order+1):
         b[n] = sum(y*(x**n))
+
+    print(scipy.linalg.det(A))
 
     # solve for coefficient vector "a" in the form [a0 a1 a2 ... aOrder]
     a = np.linalg.solve(A,b)
