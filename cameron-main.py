@@ -3,7 +3,7 @@
 import pandas as pd
 import json
 
-data_path = '~/data/elec_final_data_hackathon.csv'
+data_path = '../data/psamant/elec_final_data_hackathon.csv'
 
 elec_ds = pd.read_csv(data_path)
 
@@ -15,5 +15,10 @@ for index in range(0, len(elec_ds.home_id)):
      if hID in homes:
          homes[hID].append(info)
      else:
+         print(hID)
          homes[hID] = [info]
 
+print("Dumping data....")
+
+with open("elec_homes.json", 'w') as f:
+     json.dump(homes, f)
