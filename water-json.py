@@ -20,4 +20,4 @@ for index in range(0, len(water_ds.home_id)):
 print("Dumping data....")
 
 with open("weather_homes.json", 'w') as f:
-     json.dump(longitude, f)
+     json.dump(homes, f)
