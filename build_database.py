@@ -54,7 +54,7 @@ def exec_thread(start, finish):
                 weather_common.append((weather_index_ts[0], common_ei_wi_ts[0], common_ei_wi_ts[1], common_ei_wi_ts[2].timestamp()))
     
     print("Outputting to JSON..")
-    with open("sorted_datapairs/commonalities_{}_to_{}.json".format(start, finish), 'w') as f:
+    with open("database/commonalities_{}_to_{}.json".format(start, finish), 'w') as f:
         # Outputs list of tupes containing info: (weather index, electricity index, water index, timestamp)
         # Use datetime.fromtimestamp() to convert back to datetime object
         json.dump(weather_common, f, indent=2)
