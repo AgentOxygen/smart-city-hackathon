@@ -23,6 +23,10 @@ for data_pt in data:
     y.append(hrly_gal)
 
 
+# test data -- f(x) = 1 - x + x^2 + 5x^3
+x_test = np.array([-2,-1,0,1,2])
+y_test = np.array([-33,-2,1,6,43])
+
 
 # FIT DATA WITH REGRESSION
 
