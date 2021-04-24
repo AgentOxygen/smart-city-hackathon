@@ -28,7 +28,7 @@ dependencies = {'Time' : [time],
                 'Precip_Intensity' : [weather_ds.precip_intensity[0]],
                 'Precip_Probablity' : [weather_ds.precip_probability[0]]}
 #Inefficent algorithm that sorts through weather data set and adds it to new dependencies
-for index in range(1, 10):
+for index in range(1, len(weather_ds.localhour)):
     time = weather_ds.localhour[index]
     dt = datetime.strptime(time, '%Y-%m-%d %H:%M:%S')
     i = 0
