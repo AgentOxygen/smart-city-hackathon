@@ -39,17 +39,17 @@ def polyreg(x,y,order):
 
     # create constant matrix "A" and RHS vector "b"
     A = np.zeros((order+1,order+1))
-    b = np.zeros((1,order+1))
+    b = np.zeros(order+1)
 
     # place  values in the matrix
     aSize = 0 # size of the array being put onto the diagonal
     for n in range(order*2+1):
         if n <= order:
             aSize = aSize+1
-            A[0,order-n] = np.diag(np.ones((1,aSize))*sum(x**n))
+            A[np.arange(n+1),np.arange(order-n,order-n+n)] = np.diag(np.ones((1,aSize))*sum(x**n))
         else:
             aSize = aSize-1
-            A[n-order,0] = np.diag(np.ones((1,aSize))*sum(x**n))
+            A[np.arange(n-order,order+1),np.arange(2*order-n+1)] = np.diag(np.ones((1,aSize))*sum(x**n))
 
     # place values in the vector
     for n in range(order+1):

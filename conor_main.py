@@ -34,20 +34,20 @@ y_test = np.array([-33,-2,1,6,43])
 order = 5
 
 # call polynomial regressor
-c = conor_polyreg.polyreg(x,y,order)
+c = conor_polyreg.polyreg(x_test,y_test,order)
 
 # solved function (order needs to match the variable "order")
 f = lambda v : c[0] + c[1]*(v) + c[2]*(v**2) + c[3]*(v**3) + c[4]*(v**4) + c[5]*(v**5) 
 
 # predicted y data
-y_pred = f(x)
+y_pred = f(x_test)
 
 
 
 # ACCURACY TESTS
 
 # mean squared error (0 is perfect prediction)
-print('Mean Squared Error: %.2f' % mean_squared_error(y,y_pred))
+print('Mean Squared Error: %.2f' % mean_squared_error(y_test,y_pred))
 
 # coefficient of determination (1 is perfect prediction)
-print('Coefficient of Determination: %.2f' % r2_score(y,y_pred))
+print('Coefficient of Determination: %.2f' % r2_score(y_test,y_pred))
