@@ -29,11 +29,17 @@ for home in data_water: # could also use data_elec, it shouldn't matter
 # load the proper x-y data into data arrays
 
 
-# water consumption
-y = data_water[hID]['hourly_gal']
+# make data arrays
+y = []
+x = []
 
-# power consumption
-x = data_elec[hID]['hConsumed']
+for i in range(len(data_water[hID])):
+    
+    # water consumption
+    y.append(data_water[hID][i]['hourly_gal'])
+    
+    # power consumption
+    x.append(data_elec[hID][i]['hConsumed'])
 
 
 # regression
@@ -41,7 +47,7 @@ x = data_elec[hID]['hConsumed']
 
 # polynomial regression as a 5th order polynomial
 model = Pipeline([('poly', PolynomialFeatures(degree=5)), ('linear', LinearRegression(fit_intercept=False))])
-model = model.fit(x[:, np.newaxis], y)
+model = model.fit(x, y)
 coefficients = model.named_steps['linear'].coef_
 
 # solved function
